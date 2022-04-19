@@ -6,7 +6,6 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/googollee/go-socket.io v1.6.1
 	gorm.io/driver/mysql v1.3.3
-	gorm.io/driver/sqlserver v1.3.2
 	gorm.io/gorm v1.23.4
 )
 
@@ -35,4 +34,5 @@ require (
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
 	gopkg.in/olahol/melody.v1 v1.0.0-20170518105555-d52139073376 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/driver/sqlserver v1.3.2 // indirect
 )
