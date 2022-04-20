@@ -47,10 +47,11 @@ func GetHighestGameMode(ctx context.Context, currentUser models.CurrentPlayerSoc
 	// fetching it from the db
 	data, err = dbmodels.FindHighestPlayingModeByAreaCode(ctx, currentUser.AreaCode)
 	if err != nil {
+		log.Println("error occurred while fetching ", err)
 		return
 	}
 
-	return
+	return data, nil
 }
 
 // CloseCurrentlyPlayingMode will close the Currently playing User Session On Disconnect

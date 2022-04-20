@@ -34,7 +34,7 @@ func GetRouter(ctx context.Context) *gin.Engine {
 		}
 
 		// setting up the context
-		s.SetContext("")
+		s.SetContext(userId)
 
 		log.Println("connected to the server:", s.ID())
 		log.Println("user_id received ", userId)
@@ -49,7 +49,7 @@ func GetRouter(ctx context.Context) *gin.Engine {
 		// fetching the query values for the particular user
 		url := s.URL()
 		userId, _ := strconv.Atoi(url.Query().Get("user_id"))
-
+		log.Println("Session ID and Log ID ", s.ID())
 		log.Println("fetching the currently popular mode for user ID ", userId)
 
 		// converting the string into struct
@@ -64,7 +64,11 @@ func GetRouter(ctx context.Context) *gin.Engine {
 
 		log.Println("got the mode as ", mode)
 
-		s.Emit("fetchPopularMode : ", mode)
+		if mode == "" {
+			s.Emit("fetchPopularMode", "Select Any")
+		} else {
+			s.Emit("fetchPopularMode", mode)
+		}
 	})
 
 	// startPlayingMode will start the gamingMode and it will update the same in the DB
