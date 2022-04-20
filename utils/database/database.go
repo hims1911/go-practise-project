@@ -15,7 +15,7 @@ var sqlDB *sql.DB
 
 func InitDatabase() error {
 	// open the database
-	dsn := "root:lila_db@tcp(127.0.0.1:3306)/lila_db?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:lila_db@tcp(db-mysql:3306)/lila_db?charset=utf8mb4&parseTime=True&loc=Local"
 
 	var err error
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
